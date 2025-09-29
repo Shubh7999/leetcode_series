@@ -1,0 +1,19 @@
+//fibonacci series
+#include<iostream>
+using namespace std;
+int main()
+{
+int first=0;
+int second=1;
+cout<<"0 ";
+cout<<"1 ";
+for(int i=1;i<=10;i++)
+ {
+    
+     int k=first+second;
+     cout<<k<<" ";
+     first=second;
+     second=k;
+ }  
+ return 0;
+}
