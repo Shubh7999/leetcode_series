@@ -1,0 +1,55 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+     std::vector<int> ans(nums.size());        
+        int start=0;
+        int end=nums.size()-1;
+        int ptr= nums.size()-1;
+    while(start<=end)
+    {
+        int ss=nums[start]*nums[start];
+        int es=nums[end]*nums[end];
+         if(ss>es)
+         {
+         ans[ptr]=ss;
+         start++;
+         }
+         else if(ss<es)
+         {
+            ans[ptr]=es;
+            end--;
+         }
+         ptr--;
+    }  
+     return ans;
+    }
+};
+int main() {
+    // Example 1: Standard case
+    std::vector<int> nums1 = {-4, -1, 0, 3, 10};
+    Solution sol;
+    std::vector<int> result1 = sol.sortedSquares(nums1);
+
+    std::cout << "Input: [-4, -1, 0, 3, 10]\n";
+    std::cout << "Output: [";
+    for (size_t i = 0; i < result1.size(); ++i) {
+        std::cout << result1[i] << (i == result1.size() - 1 ? "" : ", ");
+    }
+    std::cout << "]\n\n";
+
+    // Example 2: Negative numbers dominate
+    std::vector<int> nums2 = {-7, -3, 2, 3, 11};
+    std::vector<int> result2 = sol.sortedSquares(nums2);
+
+    std::cout << "Input: [-7, -3, 2, 3, 11]\n";
+    std::cout << "Output: [";
+    for (size_t i = 0; i < result2.size(); ++i) {
+        std::cout << result2[i] << (i == result2.size() - 1 ? "" : ", ");
+    }
+    std::cout << "]\n";
+
+    return 0;
+}
