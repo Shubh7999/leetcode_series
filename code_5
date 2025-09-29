@@ -1,0 +1,46 @@
+//remove element
+#include<iostream>
+#include<vector>
+using namespace std;
+    int removeElement(vector<int>& nums, int val) 
+    {
+     int ptr=0;
+     for(int i=0;i<nums.size();i++)
+     {
+         if(nums[i]!=val)
+         {
+             nums[ptr]=nums[i];
+             ptr++;
+         }
+        
+     }
+     return ptr;
+    }
+    
+int main()
+{
+      int n, val;
+    cout << "Enter size of array: ";
+    cin >> n;
+
+    vector<int> nums(n);
+    cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+
+    cout << "Enter value to remove: ";
+    cin >> val;
+
+    int newLength = removeElement(nums, val);
+
+    cout << "New array after removing " << val << ": ";
+    for (int i = 0; i < newLength; i++) {
+        cout << nums[i] << " ";
+    }
+    cout << endl;
+
+    cout << "New length = " << newLength << endl;
+
+    return 0;
+}
